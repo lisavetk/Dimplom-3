@@ -8,7 +8,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
-import static ru.yandex.praktikum.EnvConfig.*;
+import static ru.yandex.praktikum.helpers.EnvConfig.*;
 
 public class BasePage {
     protected final WebDriver driver;

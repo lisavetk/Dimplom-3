@@ -1,4 +1,4 @@
-package ru.yandex.praktikum;
+package ru.yandex.praktikum.helpers;
 
 public class TestConstants {
     public static final String MESSAGE_TITLE_LOGIN_AFTER_REGISTRATION= "Надпись 'Вход' не найдена ";

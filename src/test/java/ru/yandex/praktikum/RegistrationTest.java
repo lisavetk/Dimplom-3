@@ -8,10 +8,11 @@ import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import ru.yandex.praktikum.helpers.UserGenerator;
 import ru.yandex.praktikum.page.objects.RegistrationPage;
 
 import static org.junit.Assert.assertEquals;
-import static ru.yandex.praktikum.TestConstants.*;
+import static ru.yandex.praktikum.helpers.TestConstants.*;
 
 @DisplayName("Тесты на регистрацию пользователя")
 public class RegistrationTest {

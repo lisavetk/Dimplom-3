@@ -1,4 +1,4 @@
-package ru.yandex.praktikum;
+package ru.yandex.praktikum.helpers;
 
 import org.apache.commons.lang3.RandomStringUtils;
 
