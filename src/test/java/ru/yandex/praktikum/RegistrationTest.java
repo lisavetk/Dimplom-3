@@ -8,6 +8,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import ru.yandex.praktikum.helpers.UserGenerator;
 import ru.yandex.praktikum.page.objects.RegistrationPage;
 
@@ -22,14 +23,14 @@ public class RegistrationTest {
     @Before
     public void setUp() {
         //для гугла
-        WebDriverManager.chromedriver().setup();
-        driver = new ChromeDriver();
+        /*WebDriverManager.chromedriver().setup();
+        driver = new ChromeDriver();*/
 
         //для яндекса
-        /*WebDriverManager.chromedriver().driverVersion("134.0.6998.0").setup();
+        WebDriverManager.chromedriver().driverVersion("134.0.6998.0").setup();
         ChromeOptions options = new ChromeOptions();
         options.setBinary("/Applications/Yandex.app/Contents/MacOS/Yandex");
-        driver = new ChromeDriver(options);*/
+        driver = new ChromeDriver(options);
 
         registrationPage = new RegistrationPage(driver);
         registrationPage.goToRegistrationPage();

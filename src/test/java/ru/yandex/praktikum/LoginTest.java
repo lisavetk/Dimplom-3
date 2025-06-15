@@ -10,6 +10,7 @@ import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import ru.yandex.praktikum.helpers.PathToLogin;
 import ru.yandex.praktikum.helpers.UserGenerator;
 import ru.yandex.praktikum.page.objects.LoginPage;
@@ -41,14 +42,14 @@ public class LoginTest {
     @Description("Для регистрации используются рандомные данные, генерируемые случайным образом. Данные сохраняются для использования в тестах на авторизацию")
     public void setUp() {
         //для гугла
-        WebDriverManager.chromedriver().setup();
-        driver = new ChromeDriver();
+        /*WebDriverManager.chromedriver().setup();
+        driver = new ChromeDriver();*/
 
         //для яндекса
-        /*WebDriverManager.chromedriver().driverVersion("134.0.6998.0").setup();
+        WebDriverManager.chromedriver().driverVersion("134.0.6998.0").setup();
         ChromeOptions options = new ChromeOptions();
         options.setBinary("/Applications/Yandex.app/Contents/MacOS/Yandex");
-        driver = new ChromeDriver(options);*/
+        driver = new ChromeDriver(options);
 
         registrationPage = new RegistrationPage(driver);
         registrationPage.goToRegistrationPage();

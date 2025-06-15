@@ -43,6 +43,4 @@ public class MainPage extends BasePage {
     public void clickButtonRegistrationOnAuthPage() {
         click(buttonRegistrationsOnAuthPage);
     }
-
-
 }
