@@ -4,7 +4,7 @@ import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-public class RegistrationPage extends BasePage {
+public class RegistrationPage extends MainPage {
 
     private static final By fieldName = By.xpath("//div[label[text()='Имя']]/input");
     private static final By fieldEmail = By.xpath("//div[label[text()='Email']]/input");

@@ -6,7 +6,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import ru.yandex.praktikum.helpers.PathToLogin;
 
-public class LoginPage extends BasePage {
+public class LoginPage extends MainPage {
 
     private static final By buttonLoginOnMainPage = By.className("button_button__33qZ0");
     private static final By buttonLoginOnRegistrationPage = By.className("Auth_link__1fOlj");
