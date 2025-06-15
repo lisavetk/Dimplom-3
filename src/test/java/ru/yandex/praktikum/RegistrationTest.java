@@ -20,7 +20,7 @@ public class RegistrationTest {
     private RegistrationPage registrationPage;
 
     @Before
-    public void createDriver() {
+    public void setUp() {
         //для гугла
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();

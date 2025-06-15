@@ -39,7 +39,7 @@ public class LoginTest {
     @Before
     @DisplayName("Регистрация нового пользователя с корректными данными имени, почты и пароля")
     @Description("Для регистрации используются рандомные данные, генерируемые случайным образом. Данные сохраняются для использования в тестах на авторизацию")
-    public void createDriver() {
+    public void setUp() {
         //для гугла
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
