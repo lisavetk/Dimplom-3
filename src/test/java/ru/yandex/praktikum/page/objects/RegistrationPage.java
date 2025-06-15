@@ -6,7 +6,6 @@ import org.openqa.selenium.WebDriver;
 
 public class RegistrationPage extends BasePage {
 
-    private static final By buttonRegistrationsOnAuthPage = By.cssSelector("a[href='/register']");
     private static final By fieldName = By.xpath("//div[label[text()='Имя']]/input");
     private static final By fieldEmail = By.xpath("//div[label[text()='Email']]/input");
     private static final By fieldPassword = By.xpath("//div[label[text()='Пароль']]/input");
@@ -18,10 +17,6 @@ public class RegistrationPage extends BasePage {
         super(driver);
     }
 
-    @Step("Нажать на кнопку 'Зарегистрироваться' на странице авторизации")
-    public void clickButtonRegistrationOnAuthPage() {
-        click(buttonRegistrationsOnAuthPage);
-    }
 
     @Step("Ввести значения в поля Имя, Email, пароль на странице регистрации")
     public void enterFormRegistration(String name, String email, String password) {
