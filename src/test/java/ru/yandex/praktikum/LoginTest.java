@@ -3,6 +3,7 @@ package ru.yandex.praktikum;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import io.qameta.allure.Description;
 import io.qameta.allure.junit4.DisplayName;
+import org.apache.commons.lang3.RandomStringUtils;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -11,10 +12,11 @@ import org.junit.runners.Parameterized;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import ru.yandex.praktikum.api.CreateUserRequest;
+import ru.yandex.praktikum.api.UsersSteps;
 import ru.yandex.praktikum.helpers.PathToLogin;
 import ru.yandex.praktikum.helpers.UserGenerator;
 import ru.yandex.praktikum.page.objects.LoginPage;
-import ru.yandex.praktikum.page.objects.RegistrationPage;
 
 import static org.junit.Assert.assertEquals;
 import static ru.yandex.praktikum.helpers.PathToLogin.*;
@@ -24,13 +26,15 @@ import static ru.yandex.praktikum.helpers.TestConstants.*;
 @RunWith(Parameterized.class)
 public class LoginTest {
     private WebDriver driver;
-    RegistrationPage registrationPage;
     String email =  UserGenerator.getRandomEmail();
     String password = UserGenerator.getRandomPassword(6);
     LoginPage loginPage;
 
     PathToLogin pathToLogin;
     String description;
+
+    UsersSteps usersSteps = new UsersSteps();
+    String accessToken;
 
     public LoginTest(String description, PathToLogin pathToLogin) {
         this.description = description;
@@ -51,13 +55,11 @@ public class LoginTest {
         options.setBinary("/Applications/Yandex.app/Contents/MacOS/Yandex");
         driver = new ChromeDriver(options);
 
-        registrationPage = new RegistrationPage(driver);
-        registrationPage.goToRegistrationPage();
-        registrationPage.enterFormRegistration(UserGenerator.getRandomName(),email, password);
-        registrationPage.clickButtonRegistrationOnRegistrationPage();
-        registrationPage.openHomePage();
+        CreateUserRequest createUserRequest = new CreateUserRequest(email, password, RandomStringUtils.randomAlphabetic(10));
+        accessToken =  usersSteps.createUser(createUserRequest).path("accessToken");
 
         loginPage = new LoginPage(driver);
+        loginPage.openHomePage();
     }
 
     @Parameterized.Parameters(name = "{0}")
@@ -82,7 +84,9 @@ public class LoginTest {
     @After
     @DisplayName("Выход из аккаунта пользователя")
     public void tearDown() {
-        loginPage.logout();
+        if (accessToken != null) {
+            usersSteps.deleteUser(accessToken);
+        }
         driver.quit();
     }
 }
