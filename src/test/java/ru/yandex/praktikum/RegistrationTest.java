@@ -47,10 +47,10 @@ public class RegistrationTest {
     }
 
     @DisplayName("Тест на непрошедшую регистрацию пользователя")
-    @Description("Вводятся корректные данные имени, почты. Пароль указывается 3 символа")
+    @Description("Вводятся корректные данные имени, почты. Пароль указывается 5 символов")
     @Test
     public void shouldShowErrorWhenPasswordIsTooShort() {
-        registrationPage.enterFormRegistration(UserGenerator.getRandomName(), UserGenerator.getRandomEmail(), UserGenerator.getRandomPassword(3));
+        registrationPage.enterFormRegistration(UserGenerator.getRandomName(), UserGenerator.getRandomEmail(), UserGenerator.getRandomPassword(5));
         registrationPage.clickButtonRegistrationOnRegistrationPage();
         assertEquals(MESSAGE_ERROR_WRONG_PASSWORD, ERROR_WRONG_PASS_REGISTRATION, registrationPage.getTextErrorWrongPassword());
     }
