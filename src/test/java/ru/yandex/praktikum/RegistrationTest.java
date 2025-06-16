@@ -21,8 +21,7 @@ import static org.junit.Assert.assertEquals;
 import static ru.yandex.praktikum.helpers.TestConstants.*;
 
 @DisplayName("Тесты на регистрацию пользователя")
-public class RegistrationTest {
-     private WebDriver driver;
+public class RegistrationTest extends BaseTest {
      private RegistrationPage registrationPage;
 
      String email;
@@ -32,15 +31,7 @@ public class RegistrationTest {
 
     @Before
     public void setUp() {
-        //для гугла
-        /*WebDriverManager.chromedriver().setup();
-        driver = new ChromeDriver();*/
-
-        //для яндекса
-        WebDriverManager.chromedriver().driverVersion("134.0.6998.0").setup();
-        ChromeOptions options = new ChromeOptions();
-        options.setBinary("/Applications/Yandex.app/Contents/MacOS/Yandex");
-        driver = new ChromeDriver(options);
+        super.setUp();
 
         registrationPage = new RegistrationPage(driver);
         registrationPage.goToRegistrationPage();

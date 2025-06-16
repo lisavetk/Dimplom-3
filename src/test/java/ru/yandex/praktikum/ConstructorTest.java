@@ -22,7 +22,7 @@ import static ru.yandex.praktikum.helpers.TestConstants.*;
 
 @RunWith(Parameterized.class)
 @DisplayName("Тесты переходы к разделам в селекторе конструктора")
-public class ConstructorTest {
+public class ConstructorTest  extends BaseTest {
     private WebDriver driver;
     ConstructorPage constructorPage;
 
@@ -38,17 +38,7 @@ public class ConstructorTest {
 
     @Before
     public void setUp() {
-        //для гугла
-        /*WebDriverManager.chromedriver().setup();
-        driver = new ChromeDriver();
-        driver.manage().window().setSize(new Dimension(800, 400));*/
-
-        //для яндекса
-        WebDriverManager.chromedriver().driverVersion("134.0.6998.0").setup();
-        ChromeOptions options = new ChromeOptions();
-        options.setBinary("/Applications/Yandex.app/Contents/MacOS/Yandex");
-        driver = new ChromeDriver(options);
-        driver.manage().window().setSize(new Dimension(800, 400));
+        super.setUp();
 
         constructorPage = new ConstructorPage(driver);
         constructorPage.openHomePage();

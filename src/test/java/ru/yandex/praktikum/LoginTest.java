@@ -24,8 +24,7 @@ import static ru.yandex.praktikum.helpers.TestConstants.*;
 
 @DisplayName("Тесты на авторизацию пользователя")
 @RunWith(Parameterized.class)
-public class LoginTest {
-    private WebDriver driver;
+public class LoginTest extends BaseTest {
     String email =  UserGenerator.getRandomEmail();
     String password = UserGenerator.getRandomPassword(6);
     LoginPage loginPage;
@@ -45,15 +44,7 @@ public class LoginTest {
     @DisplayName("Регистрация нового пользователя с корректными данными имени, почты и пароля")
     @Description("Для регистрации используются рандомные данные, генерируемые случайным образом. Данные сохраняются для использования в тестах на авторизацию")
     public void setUp() {
-        //для гугла
-        /*WebDriverManager.chromedriver().setup();
-        driver = new ChromeDriver();*/
-
-        //для яндекса
-        WebDriverManager.chromedriver().driverVersion("134.0.6998.0").setup();
-        ChromeOptions options = new ChromeOptions();
-        options.setBinary("/Applications/Yandex.app/Contents/MacOS/Yandex");
-        driver = new ChromeDriver(options);
+        super.setUp();
 
         CreateUserRequest createUserRequest = new CreateUserRequest(email, password, RandomStringUtils.randomAlphabetic(10));
         accessToken =  usersSteps.createUser(createUserRequest).path("accessToken");
