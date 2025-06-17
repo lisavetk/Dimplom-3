@@ -25,6 +25,7 @@ public class ConstructorPage extends MainPage {
 
     @Step("Нажать кнопку Булки в селекторе")
     public void clickButtonBread() {
+        waitElement(buttonBread);
         click(buttonBread);
     }
 
@@ -77,7 +78,8 @@ public class ConstructorPage extends MainPage {
 
     @Step("Получить текст активной секции")
     public String getTextActiveSection() {
-       return getText(activeSection);
+        waitElement(activeSection);
+        return getText(activeSection);
     }
 
     public void chooseSelection(PathToSelectionConstructor path) {

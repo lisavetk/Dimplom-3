@@ -1,6 +1,5 @@
 package ru.yandex.praktikum;
 
-import io.github.bonigarcia.wdm.WebDriverManager;
 import io.qameta.allure.Description;
 import io.qameta.allure.Step;
 import io.qameta.allure.junit4.DisplayName;
@@ -8,9 +7,6 @@ import io.restassured.response.Response;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
 import ru.yandex.praktikum.api.LoginUserRequest;
 import ru.yandex.praktikum.api.UsersSteps;
 import ru.yandex.praktikum.helpers.UserGenerator;

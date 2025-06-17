@@ -1,6 +1,5 @@
 package ru.yandex.praktikum;
 
-import io.github.bonigarcia.wdm.WebDriverManager;
 import io.qameta.allure.Description;
 import io.qameta.allure.junit4.DisplayName;
 import org.junit.After;
@@ -8,10 +7,6 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
-import org.openqa.selenium.Dimension;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
 import ru.yandex.praktikum.helpers.PathToSelectionConstructor;
 import ru.yandex.praktikum.page.objects.ConstructorPage;
 
@@ -23,7 +18,6 @@ import static ru.yandex.praktikum.helpers.TestConstants.*;
 @RunWith(Parameterized.class)
 @DisplayName("Тесты переходы к разделам в селекторе конструктора")
 public class ConstructorTest  extends BaseTest {
-    private WebDriver driver;
     ConstructorPage constructorPage;
 
     PathToSelectionConstructor pathToSection;
